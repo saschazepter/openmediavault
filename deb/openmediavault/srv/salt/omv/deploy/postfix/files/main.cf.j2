@@ -26,6 +26,7 @@
 {%- set smtputf8_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTPUTF8_ENABLE', 'no') -%}
 {%- set default_transport = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_TRANSPORT', 'smtp') -%}
 {%- set relayhost_mxlookup_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE', 'no') -%}
+{%- set disable_vrfy_command = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DISABLE_VRFY_COMMAND', 'yes') -%}
 {{ pillar['headers']['multiline'] }}
 compatibility_level = {{ compatibility_level }}
 {%- if dns_config['domainname'] | length > 0 %}
@@ -33,6 +34,7 @@ mydomain = {{ dns_config['domainname'] }}
 {%- endif %}
 mydestination = {{ mydestination }}
 inet_interfaces = {{ inet_interfaces }}
+disable_vrfy_command = {{ disable_vrfy_command }}
 {%- if not salt['omv_utils.is_ipv6_enabled']() %}
 inet_protocols = ipv4
 {%- endif %}

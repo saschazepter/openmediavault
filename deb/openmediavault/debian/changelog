@@ -24,6 +24,8 @@ openmediavault (8.8.0-1) stable; urgency=medium
   * Do not follow symlinks out of the shared folder when setting the
     owner or ACL of a file in a shared folder. Thanks to Hasnain Naeem
     and Ryan Henry (University of Calgary) for reporting this issue.
+  * Disable the SMTP VRFY command in Postfix. Use the environment
+    variable `OMV_POSTFIX_MAIN_DISABLE_VRFY_COMMAND` to customize this.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 
